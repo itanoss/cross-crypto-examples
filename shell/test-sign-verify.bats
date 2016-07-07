@@ -3,7 +3,7 @@
 source ./environment
 ./clean.sh
 
-@test "A verification should be succeeded with signature generated from pubKey" {
+@test "verify self-signed with self-generated key pair" {
   run ./generate.sh
   run ./sign.sh
   [ "$status" -eq 0 ]

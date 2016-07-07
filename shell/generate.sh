@@ -1,8 +1,6 @@
 #!/bin/bash
 
-TARGET_DIRECTORY=target
-PRIVATE_KEY_FILENAME=privKey.pem
-PUBLIC_KEY_FILENAME=pubKey.pem
+source ./environment
 
 # Target directory creation
 if [ ! -d "$TARGET_DIRECTORY" ]; then

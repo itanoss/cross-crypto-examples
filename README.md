@@ -1,4 +1,4 @@
-# Cryptogrpahic Examples for various language
+# Cryptogrpahic example for various languages
 
 Since security become to hot potato, many developers including me should consider about cryptography. Cryptograhpic technology is very popular these days such as SSL, TLS, asymmetric key pair and so on.
 

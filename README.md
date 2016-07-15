@@ -1,5 +1,7 @@
 # Cryptogrpahic example for various languages
 
+[![Build Status](https://travis-ci.org/itanoss/cross-crypto-examples.svg)](https://travis-ci.org/itanoss/cross-crypto-examples)
+
 Since security become to hot potato, many developers including me should consider about cryptography. Cryptograhpic technology is very popular these days such as SSL, TLS, asymmetric key pair and so on.
 
 You can see basic usage of cryptography in this repository:

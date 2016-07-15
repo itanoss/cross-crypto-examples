@@ -1,4 +1,5 @@
 language: java
+jdk: oraclejdk8
 before_install:
   - sudo add-apt-repository ppa:duggan/bats --yes
   - sudo apt-get update -qq

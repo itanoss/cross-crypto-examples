@@ -4,11 +4,14 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.io.File;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
+
+import static kr.itanoss.cryptoexample.Utility.readBytes;
 
 public class Cryptography {
     public static void main(String[] args) throws NoSuchAlgorithmException {
@@ -39,12 +42,16 @@ public class Cryptography {
 
 
 
-
-
     private KeyPairGenerator initializeGenerator() throws NoSuchAlgorithmException {
         final KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
         generator.initialize(2048, new SecureRandom());
         return generator;
+    }
+
+    PublicKey getPublicKey(String filepath) throws IOException, NoSuchAlgorithmException, InvalidKeySpecException {
+        byte[] keyBytes = readBytes(filepath);
+
+        return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(keyBytes));
     }
 
     private Signature initializeSignature() throws NoSuchAlgorithmException {
@@ -66,8 +73,7 @@ public class Cryptography {
         return Base64.getEncoder().encodeToString(signatureBytes);
     }
 
-    public boolean verify(String original, String base64EncodedSignature, PublicKey publicKey) throws SecurityException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        byte[] signatureBytes = Base64.getDecoder().decode(base64EncodedSignature);
+    public boolean verify(String original, PublicKey publicKey, byte[] signatureBytes) throws SecurityException, InvalidKeySpecException, NoSuchAlgorithmException, InvalidKeyException, SignatureException {
         final Signature signature = initializeSignature();
 
         signature.initVerify(publicKey);

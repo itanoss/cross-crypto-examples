@@ -16,5 +16,13 @@ And you can see a variety of examples like the following languages:
   - Java
   - _To be more_
 
-# License
+## Test
+
+For each language base, there are elborate unit tests to cover the following cases.
+  - Create a signature within the language self and also verify within itself.
+  - Create a signature within the language self and verify it with all of other language bases.
+  - Encrypt within the language self and also decrypt within itself.
+  - Encrypt within the language self and decrypt it with all of other language bases.
+
+## License
 MIT

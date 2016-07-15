@@ -5,4 +5,4 @@ before_install:
   - sudo apt-get install -qq bats
 script:
   - cd shell && bats *.bats && cd ..
-  - cd java && ./gradlew clean check && cd ..
+  - cd java && ./gradlew clean assemble check && cd ..
